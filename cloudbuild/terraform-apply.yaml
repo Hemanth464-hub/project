@@ -1,0 +1,43 @@
+options:
+  serviceAccount: terraform-sa@clean-trees-477813-n2.iam.gserviceaccount.com
+
+steps:
+# 1. Terraform Init
+- name: hashicorp/terraform:1.7.5
+  id: init
+  entrypoint: sh
+  args:
+    - -c
+    - |
+      terraform init -input=false
+
+# 2. Terraform Plan
+- name: hashicorp/terraform:1.7.5
+  id: plan
+  entrypoint: sh
+  args:
+    - -c
+    - |
+      terraform plan -input=false -out=tfplan
+
+# 3. Terraform Apply (controlled)
+- name: hashicorp/terraform:1.7.5
+  id: apply
+  entrypoint: sh
+  args:
+    - -c
+    - |
+      if [ "$_APPLY" = "true" ]; then
+        terraform apply -input=false -auto-approve tfplan
+      else
+        echo "Apply skipped (plan-only mode)"
+      fi
+
+# 4. Drift Detection
+- name: hashicorp/terraform:1.7.5
+  id: drift
+  entrypoint: sh
+  args:
+    - -c
+    - |
+      terraform plan -detailed-exitcode || echo "⚠️ Drift detected"
