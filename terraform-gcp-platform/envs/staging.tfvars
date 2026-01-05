@@ -1,2 +1,2 @@
-project_id="your-project"
-region="us-central1"
+project_id = "clean-trees-477813-n2"
+region     = "us-central1"
