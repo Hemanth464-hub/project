@@ -1,1 +1,3 @@
-output "vpc_id" { value = module.network.vpc_id }
+output "network" {
+  value = module.network.network_name
+}
