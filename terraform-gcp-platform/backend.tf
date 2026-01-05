@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket  = "YOUR_PROJECT_ID-tf-state"
+    bucket  = "clean-trees-477813-n2-tf-state"
     prefix  = "terraform/state"
   }
 }
