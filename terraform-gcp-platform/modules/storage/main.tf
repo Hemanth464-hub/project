@@ -1,0 +1,1 @@
+resource "google_storage_bucket" "bucket" { name="example-bucket-12345" location="US" }

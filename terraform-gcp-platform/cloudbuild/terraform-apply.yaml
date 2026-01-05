@@ -1,0 +1,7 @@
+
+steps:
+- name: hashicorp/terraform
+  entrypoint: sh
+  args:
+  - -c
+  - terraform init && terraform apply -auto-approve

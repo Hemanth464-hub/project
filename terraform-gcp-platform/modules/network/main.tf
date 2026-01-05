@@ -1,0 +1,1 @@
+resource "google_compute_network" "vpc" { name = "main-vpc" auto_create_subnetworks = false }
