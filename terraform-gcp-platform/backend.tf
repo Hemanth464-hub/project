@@ -1,1 +1,6 @@
-terraform { backend "gcs" { bucket = "CHANGE_ME" prefix = "terraform/state" } }
+terraform {
+  backend "gcs" {
+    bucket  = "YOUR_PROJECT_ID-tf-state"
+    prefix  = "terraform/state"
+  }
+}
