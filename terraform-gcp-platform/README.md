@@ -1,1 +1,1 @@
-Terraform GCP Platform – complete runnable project
+Terraform GCP Platform – complete project
